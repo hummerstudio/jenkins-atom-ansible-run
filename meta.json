@@ -1,0 +1,11 @@
+{
+  "name": "Ansible",
+  "summary": "跑 ansible-playbook，并把 recap 解析成出参。",
+  "author": "hummerstudio",
+  "license": "MIT",
+  "tags": [
+    "official-port",
+    "ansible"
+  ],
+  "homepage": "https://github.com/hummerstudio/jenkins-atom-ansible-run"
+}

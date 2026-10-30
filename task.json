@@ -1,0 +1,91 @@
+{
+  "atomCode": "ansible-run",
+  "name": "Ansible",
+  "version": "1.0.0",
+  "description": "跑 ansible-playbook，并把 recap 解析成出参。",
+  "execution": {
+    "packagePath": "ansible-run.jar",
+    "language": "java",
+    "target": "$atom_java_path -cp ansible-run.jar com.jenkinschina.atom.sdk.AtomRunner"
+  },
+  "input": {
+    "playbook": {
+      "label": "playbook 路径",
+      "type": "vuex-input",
+      "default": "site.yml"
+    },
+    "inventory": {
+      "label": "inventory",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "limit": {
+      "label": "--limit",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "tags": {
+      "label": "--tags",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "skipTags": {
+      "label": "--skip-tags",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "extraVars": {
+      "label": "额外变量（-e）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "extraArgs": {
+      "label": "其它参数",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "check": {
+      "label": "只做 --check",
+      "type": "checkbox",
+      "default": "false"
+    },
+    "forks": {
+      "label": "并发数（0 = 默认）",
+      "type": "vuex-input-number",
+      "default": "0"
+    },
+    "failOnUnreachable": {
+      "label": "有主机不可达就算失败",
+      "type": "checkbox",
+      "default": "true"
+    }
+  },
+  "output": {
+    "ok": {
+      "type": "string",
+      "description": "ok 数"
+    },
+    "changed": {
+      "type": "string",
+      "description": "changed 数"
+    },
+    "unreachable": {
+      "type": "string",
+      "description": "不可达"
+    },
+    "failed": {
+      "type": "string",
+      "description": "失败任务"
+    },
+    "skipped": {
+      "type": "string",
+      "description": "跳过"
+    }
+  },
+  "x-jenkins": {
+    "protocol": "jenkins-1",
+    "requires": {
+      "runner": ">=0.4.0"
+    }
+  }
+}
